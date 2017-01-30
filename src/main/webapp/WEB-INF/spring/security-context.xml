@@ -8,7 +8,7 @@ http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.2.xsd
 http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd">
 
-    <http auto-config="true">
+    <http use-expressions="true" auto-config="true">
     </http>
 
     <authentication-manager>
@@ -22,6 +22,6 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         </authentication-provider>
     </authentication-manager>
     
-    <jee:jndi-lookup jndi-name="jdbc/Spedition" id = "dataSource"></jee:jndi-lookup>
+    <jee:jndi-lookup jndi-name="jdbc/spedition" id = "dataSource"></jee:jndi-lookup>
 
 </beans:beans>

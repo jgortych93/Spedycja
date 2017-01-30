@@ -20,7 +20,7 @@
 
    
 
-    <ResourceLink name="jdbc/Spedition"
-   global="jdbc/Spedition"
+    <ResourceLink name="jdbc/spedition"
+   global="jdbc/spedition"
    type="javax.sql.DataSource"/>
 </Context>

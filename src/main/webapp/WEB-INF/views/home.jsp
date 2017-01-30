@@ -1,14 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>Spedycja</title>
 </head>
 <body>
 <h1>
-	Hello world!  
+	Witaj na stronie glownej! 
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<P>  Aktualny czas to ${serverTime}. </P>
+<security:authorize access="hasRole('ROLE_USER')">
+	<a href ="/sender/add">Dodaj nadawce</a>
+</security:authorize>
 </body>
 </html>
