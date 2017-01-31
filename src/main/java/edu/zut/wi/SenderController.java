@@ -56,6 +56,7 @@ public class SenderController {
 		return "redirect:/senders";
 	}
 	
+	
 	@Secured("ROLE_USER")
 	@RequestMapping(value = "/sender/{id}/update", method = RequestMethod.GET)
 	public String updateSender(@PathVariable("id") int id, Model model)

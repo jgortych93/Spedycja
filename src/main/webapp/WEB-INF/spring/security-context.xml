@@ -23,6 +23,7 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
         </authentication-provider>
     </authentication-manager>
     
+    
     <jee:jndi-lookup jndi-name="jdbc/spedition" id = "dataSource"></jee:jndi-lookup>
 
 </beans:beans>

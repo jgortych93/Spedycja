@@ -15,7 +15,6 @@
 
  Nazwa: 
  <form:input path="name" id="name"></form:input>
-
  <br />
 
  Ulica: 

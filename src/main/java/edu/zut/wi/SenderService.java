@@ -30,6 +30,7 @@ public class SenderService {
 	
 	public Sender getSender(int id)
 	{
+
 		return senderDAO.findById(Integer.toString(id));
 	}
 	public void updateSender(Sender sender)

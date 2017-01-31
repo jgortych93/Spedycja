@@ -22,6 +22,7 @@
 			<th>Panstwo</th>
 			<th>Kod pocztowy</th>
 			<th>Opcje</th>
+			
 		</tr>
 	</thead>
 	<c:forEach var="sender" items="${senders}">

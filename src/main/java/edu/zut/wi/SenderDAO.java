@@ -45,6 +45,7 @@ public class SenderDAO {
 	
 	public void intertSender(String name,String street,String number,String city,String state,String zipcode)
 	{
+		
 		jdbc.update("INSERT INTO sender (name,street,number,city,state,zipcode) VALUES (?,?,?,?,?,?)", name,street, number,city, state, zipcode);
 	}
 
