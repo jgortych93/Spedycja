@@ -17,6 +17,10 @@ public class Sender {
 		this.state = state;
 		this.zipCode = zipCode;
 	}
+	public Sender()
+	{
+		
+	}
 	public String getId() {
 		return id;
 	}
