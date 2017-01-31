@@ -1,5 +1,7 @@
 package edu.zut.wi;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,11 @@ public class CarController {
 	}
 	
 	@RequestMapping(value = "/car/add", method=RequestMethod.POST)
-	public String handleCreateCar(@ModelAttribute("carForm") Car car, BindingResult result, Model model)
+	public String handleCreateCar(@ModelAttribute("carForm") @Valid Car car, BindingResult result, Model model)
 	{
+		if (result.hasErrors())
+			return "add_car";
+			
 		logger.info("Wprowadzo pojazd {}.", car.getMarka(),car.getModel());
 		carService.addCar(car);
 		return "redirect:/";

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spedycja</title>
+<title>Spedycja-dodawanie samochodu</title>
 </head>
 <body>
 <h1>
@@ -16,12 +16,13 @@
 
  Marka: 
  <form:input path="marka" id="marka"></form:input>
+ <form:errors path="marka"/>
 
  <br />
 
  Model: 
  <form:input path="model" id="model"></form:input>
-
+ <form:errors path="model"/>
  <br />
 
 Pojemnosc:

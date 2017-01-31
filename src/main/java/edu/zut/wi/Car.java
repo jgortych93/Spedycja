@@ -1,11 +1,15 @@
 package edu.zut.wi;
 
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Car {
 	
+	@Size(max=20, message="Maksymalna długość to 20 znaków")
 	private String marka;
+	@Size(max=20, message="Maksymalna długość to 20 znaków")
 	private String model;
 	private int pojemnosc;
 	private boolean status;
