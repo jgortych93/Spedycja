@@ -29,9 +29,8 @@ public class SenderController {
 	}
 	
 	@RequestMapping(value = "/sender/add", method=RequestMethod.POST)
-	public String handleCreateSender(@ModelAttribute("senderForm") Sender sender, BindingResult result, Model model)
+	public String handleCreateOrUpdateSender(@ModelAttribute("senderForm") Sender sender, BindingResult result, Model model)
 	{
-		logger.info("Welcome home! The client locale is {}.", sender.getName());
 		senderService.addSender(sender);
 		return "redirect:/";
 	}
@@ -39,8 +38,11 @@ public class SenderController {
 	@RequestMapping(value = "/sender", method=RequestMethod.GET)
 	public String listSenders(Model model)
 	{
+		model.addAttribute("senders", senderService.getAll());
 		return "list_senders";
 	}
+	
+
 	
 	
 }
