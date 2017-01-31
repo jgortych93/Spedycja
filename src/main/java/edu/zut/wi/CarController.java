@@ -28,6 +28,13 @@ public class CarController {
 		return "add_car";
 	}
 	
+	@RequestMapping(value="/car", method=RequestMethod.GET)
+	public String editCar(Model model)
+	{
+		model.addAttribute("cars",carService.getCars());
+		return "list_cars";
+	}
+	
 	@RequestMapping(value = "/car/add", method=RequestMethod.POST)
 	public String handleCreateCar(@ModelAttribute("carForm") @Valid Car car, BindingResult result, Model model)
 	{
@@ -36,12 +43,8 @@ public class CarController {
 			
 		logger.info("Wprowadzo pojazd {}.", car.getMarka(),car.getModel());
 		carService.addCar(car);
-		return "redirect:/";
+		return "redirect:/car";
 	}
 	
-	@RequestMapping(value = "/car", method=RequestMethod.GET)
-	public String listCars(Model model)
-	{
-		return "list_cars";
-	}
+	
 }

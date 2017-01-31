@@ -24,7 +24,7 @@ public class CarDAO {
 	
 	public List<Car> listCar()
 	{	
-		String query = "SELECT * FROM Cars";
+		String query = "SELECT * FROM cars";
 		return jdbc.query(query, new RowMapper<Car>() {
 
 			public Car mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -36,6 +36,12 @@ public class CarDAO {
 	
 	void insertCar(Car auto)
 	{
-		jdbc.update("INSERT INTO cars (marka,model,pojemnosc) VALUES (?,?,?)",auto.getMarka(),auto.getModel(),auto.getPojemnosc());	}
+		jdbc.update("INSERT INTO cars (marka,model,pojemnosc) VALUES (?,?,?)",auto.getMarka(),auto.getModel(),auto.getPojemnosc());	
+	}
+	
+	void updateCar(Car auto)
+	{
+		jdbc.update("UPDATE cars SET marka=?, model=?, pojemnosc=?, WHERE id=?",auto.getMarka(),auto.getModel(),auto.getPojemnosc(),auto.getId());
+	}
 	
 }
