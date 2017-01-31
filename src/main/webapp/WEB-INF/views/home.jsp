@@ -13,7 +13,10 @@
 <P>  Aktualny czas to ${serverTime}. </P>
 	<a href ="spring_security_login">Zaloguj</a></br>
 <security:authorize access="hasRole('ROLE_USER')">
+	</br>
 	<a href ="sender/add">Dodaj nadawce</a>
+	</br>
+	<a href ="car/add">Dodaj pojazd</a>
 </security:authorize>
 </body>
 </html>
