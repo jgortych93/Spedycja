@@ -35,8 +35,8 @@
 			<td>${sender.zipCode}</td>
 			<td>
 			
-				<button class="btn btn-primary" onclick="location.href='/sender/${sender.id}/update'">Edytuj</button>
-				<button class="btn btn-danger" onclick="this.disabled=true;post('/sender/${sender.id}/delete')">Usun</button>
+				<button class="btn btn-primary" onclick="location.href='sender/${sender.id}/update'">Edytuj</button>
+				<button class="btn btn-primary" onclick="location.href='sender/${sender.id}/delete'">Usun</button>
 			</td>
 		</tr>
 	</c:forEach>
@@ -44,7 +44,7 @@
 
 </table>
 
-
+<button class="btn btn-primary" onclick="location.href='sender/add'">Dodaj nadawce</button>
 
 </body>
 </html>

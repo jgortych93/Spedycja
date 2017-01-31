@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Dodaj nadawce:
+	Dodaj/Edytuj nadawce:
 </h1>
 
 <form:form action="add" modelAttribute="senderForm" method="POST">

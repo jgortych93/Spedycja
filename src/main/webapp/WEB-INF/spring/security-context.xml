@@ -10,10 +10,11 @@ http://www.springframework.org/schema/jee http://www.springframework.org/schema/
 
     <http use-expressions="true" auto-config="true">
     </http>
-
+	<global-method-security secured-annotations="enabled"/>
     <authentication-manager>
+       
         <authentication-provider>
-        
+
             <jdbc-user-service data-source-ref="dataSource"
 			   users-by-username-query=
 			     "SELECT username, password, enabled FROM users WHERE username=?"

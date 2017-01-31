@@ -14,7 +14,7 @@
 	<a href ="spring_security_login">Zaloguj</a></br>
 <security:authorize access="hasRole('ROLE_USER')">
 	</br>
-	<a href ="sender/add">Dodaj nadawce</a>
+	<a href ="senders">Zobacz nadawcow</a>
 	</br>
 	<a href ="car/add">Dodaj pojazd</a>
 </security:authorize>
