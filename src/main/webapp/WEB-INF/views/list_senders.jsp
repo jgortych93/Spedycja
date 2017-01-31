@@ -34,6 +34,7 @@
 			<td>${sender.state}</td>
 			<td>${sender.zipCode}</td>
 			<td>
+			
 				<button class="btn btn-primary" onclick="location.href='/sender/${sender.id}/update'">Edytuj</button>
 				<button class="btn btn-danger" onclick="this.disabled=true;post('/sender/${sender.id}/delete')">Usun</button>
 			</td>

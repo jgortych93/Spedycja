@@ -35,6 +35,7 @@ public class SenderController {
 		return "redirect:/";
 	}
 	
+	
 	@RequestMapping(value = "/sender", method=RequestMethod.GET)
 	public String listSenders(Model model)
 	{
