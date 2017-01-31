@@ -11,7 +11,7 @@
 	Dodaj/Edytuj nadawce:
 </h1>
 
-<form:form action="add" modelAttribute="senderForm" method="POST">
+<form:form action="${userActionUrl }" modelAttribute="senderForm" method="POST">
 
  Nazwa: 
  <form:input path="name" id="name"></form:input>

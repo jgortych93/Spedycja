@@ -62,7 +62,7 @@ public class SenderController {
 	public String updateSender(@PathVariable("id") int id, Model model)
 	{
 		Sender sender = senderService.getSender(id);
-		model.addAttribute("userForm", sender);
+		model.addAttribute("senderForm", sender);
 		return "add_sender";
 	}
 

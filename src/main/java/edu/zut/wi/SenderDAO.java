@@ -61,7 +61,7 @@ public class SenderDAO {
 	
 	public void updateSender(String id, String name,String street,String number,String city,String state,String zipcode)
 	{
-		jdbc.update("UPDATE sender SET name = ?,street=?,number=?,city=?,state=?,zipcode=?) WHERE id=?", name,street, number,city, state, zipcode,id);
+		jdbc.update("UPDATE sender SET name = ?,street=?,number=?,city=?,state=?,zipcode=? WHERE id=?", name,street, number,city, state, zipcode,id);
 	}
 	
 }
