@@ -11,21 +11,26 @@
 </h1>
 
 <P>  Aktualny czas to ${serverTime}. </P>
-	<a href ="spring_security_login">Zaloguj sie</a></br>
+	<a href ="spring_security_login">Zaloguj sie</a>
 	<a href="<c:url value="j_spring_security_logout" />" > Wyloguj sie</a>
+<br>
 <security:authorize access="hasRole('ROLE_USER')">
-	</br>
+	<br>
 	<a href ="senders">Zobacz nadawcow</a>
-	</br>
+	<br>
 
 	<a href ="receivers">Zobacz odbiorcow</a>
 	
-	</br>
+	<br>
 	<a href ="cars">Zobacz pojazdy</a>
 </security:authorize>
-</br>
+<br>
 <security:authorize access="hasRole('ROLE_DRIVER')" url="/**">
 	<a href ="car/take">Podejmij lub zwroc auto</a>
+</security:authorize>
+<br>
+<security:authorize access="hasRole('ROLE_ADMIN')" url="/**">
+	<a href ="users">Zarzadzaj kontami uzytkownikow</a>
 </security:authorize>
 </body>
 </html>
