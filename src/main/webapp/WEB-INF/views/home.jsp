@@ -23,5 +23,9 @@
 
 	
 </security:authorize>
+</br>
+<security:authorize access="hasRole('ROLE_DRIVER')" url="/**">
+	<a href ="car/take">Podejmij lub zwroc auto</a>
+</security:authorize>
 </body>
 </html>

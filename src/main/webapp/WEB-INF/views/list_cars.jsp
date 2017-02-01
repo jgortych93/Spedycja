@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +15,7 @@
 			<th>Marka</th>
 			<th>Model</th>
 			<th>Pojemnosc</th>
-			<th>Status wypozyczenia</th>
+			<th>Status podjecia</th>
 		</tr>
 	</thead>
 	<c:forEach var="car" items="${cars}">
@@ -26,8 +27,12 @@
 			<td>${car.status}</td>
 			<td>
 			
-				<button class="btn btn-primary" onclick="location.href='/car/${car.id}/update'">Edytuj</button>
-				<button class="btn btn-danger" onclick="this.disabled=true;post('/car/${car.id}/delete')">Usun</button>
+				<button class="btn btn-primary" onclick="location.href='car/${car.id}/update'">Edytuj</button>
+				<button class="btn btn-danger" onclick="this.disabled=true;post('car/${car.id}/delete')">Usun</button>
+				<security:authorize access="hasRole('ROLE_DRIVER')" url="/**">
+					<button class="btn btn-primary" onclick="location.href='car/${car.id}/take'">Podejmij auto</button>
+					<button class="btn btn-primary" onclick="location.href='car/${car.id}/return'">Zwolnij auto</button>
+				</security:authorize>
 			</td>
 		</tr>
 	</c:forEach>

@@ -12,7 +12,7 @@
 <h1>
 	Dodaj pojazd:
 </h1>
-<form:form action="add" modelAttribute="carForm" method="POST">
+<form:form action="/wi/car/add" modelAttribute="carForm" method="POST">
 
  Marka: 
  <form:input path="marka" id="marka"></form:input>
