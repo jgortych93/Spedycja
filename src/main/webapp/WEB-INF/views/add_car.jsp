@@ -42,7 +42,9 @@ Pojemnosc:
 
  <c:choose>
 <c:when test="${carForm['id']==null}">
+<security:authorize access="hasRole('ROLE_USER')" url="/**">
  <input type="submit" value="Dodaj pojazd" />
+</security:authorize>
 </c:when>
 <c:otherwise>
  <input type="submit" value="Edytuj pojazd" />

@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ public class CarController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CarController.class);
 	
+	@Secured("ROLE_USER")
 	@RequestMapping(value="/car/add", method=RequestMethod.GET)
 	public String createCar(Model model)
 	{
@@ -29,6 +31,7 @@ public class CarController {
 		return "add_car";
 	}
 	
+	@Secured("ROLE_USER")
 	@RequestMapping(value="/car/{id}/update", method=RequestMethod.GET)
 	public String editCar(Model model,@PathVariable("id") int id)
 	{
@@ -37,6 +40,15 @@ public class CarController {
 		return "add_car";
 	}
 	
+	@Secured("ROLE_USER")
+	@RequestMapping(value="/car/{id}/delete", method=RequestMethod.GET)
+	public String deleteCar(Model model,@PathVariable("id") int id)
+	{
+		carService.deleteCar(id);
+		return "redirect:/cars";
+	}
+	
+	@Secured({"ROLE_USER","ROLE_DRIVER"})
 	@RequestMapping(value="/cars", method=RequestMethod.GET)
 	public String listCar(Model model)
 	{
@@ -44,6 +56,7 @@ public class CarController {
 		return "list_cars";
 	}
 	
+	@Secured("ROLE_USER")
 	@RequestMapping(value = "/car/add", method=RequestMethod.POST)
 	public String updateCar(@ModelAttribute("carForm") @Valid Car car, BindingResult result, Model model)
 	{
@@ -54,6 +67,7 @@ public class CarController {
 		return "redirect:/cars";
 	}
 	
+	@Secured("ROLE_USER")
 	@RequestMapping(value="/car/{id}/update", method=RequestMethod.POST)
 	public String handleCreateCar(@ModelAttribute("carForm") @Valid Car car, BindingResult result, Model model)
 	{
@@ -65,11 +79,14 @@ public class CarController {
 		return "redirect:/cars";
 	}
 	
+	@Secured("ROLE_DRIVER")
 	@RequestMapping(value="car/take", method=RequestMethod.GET)
 	public String takeCar(Model model)
 	{
 		return "redirect:/cars";
 	}
+	
+	@Secured("ROLE_DRIVER")
 	@RequestMapping(value="car/{id}/take", method=RequestMethod.GET)
 	public String takingCar(Model model,@PathVariable("id") int id)
 	{
@@ -81,6 +98,7 @@ public class CarController {
 		return "redirect:/cars";
 	}
 	
+	@Secured("ROLE_DRIVER")
 	@RequestMapping(value="car/{id}/return", method=RequestMethod.GET)
 	public String returningCar(Model model,@PathVariable("id") int id)
 	{

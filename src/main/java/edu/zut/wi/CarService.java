@@ -41,4 +41,9 @@ public class CarService {
 	{
 		carDAO.returnCar(car);
 	}
+	
+	void deleteCar(int id)
+	{
+		carDAO.deleteCar(id);
+	}
 }

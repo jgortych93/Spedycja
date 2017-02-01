@@ -49,7 +49,10 @@ public class CarDAO {
 		jdbc.update("UPDATE cars SET marka=?, model=?, pojemnosc=? WHERE id=?",auto.getMarka(),auto.getModel(),auto.getPojemnosc(),auto.getId());
 	}
 	
-	
+	void deleteCar(int id)
+	{
+		jdbc.update("DELETE FROM cars WHERE id=?", id);
+	}
 	
 	public Car findById(int id) {
 

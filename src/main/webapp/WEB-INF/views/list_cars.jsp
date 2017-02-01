@@ -27,8 +27,10 @@
 			<td>${car.status}</td>
 			<td>
 			
-				<button class="btn btn-primary" onclick="location.href='car/${car.id}/update'">Edytuj</button>
-				<button class="btn btn-danger" onclick="this.disabled=true;post('car/${car.id}/delete')">Usun</button>
+				<security:authorize access="hasRole('ROLE_USER')" url="/**">
+					<button class="btn btn-primary" onclick="location.href='car/${car.id}/update'">Edytuj</button>
+					<button class="btn btn-primary" onclick="location.href='car/${car.id}/delete'">Usun</button>
+				</security:authorize>
 				<security:authorize access="hasRole('ROLE_DRIVER')" url="/**">
 					<button class="btn btn-primary" onclick="location.href='car/${car.id}/take'">Podejmij auto</button>
 					<button class="btn btn-primary" onclick="location.href='car/${car.id}/return'">Zwolnij auto</button>
@@ -39,7 +41,9 @@
 
 
 </table>
-<button class="btn btn-primary" onclick="location.href='car/add'">Dodaj auto</button>
+<security:authorize access="hasRole('ROLE_USER')" url="/**">
+	<button class="btn btn-primary" onclick="location.href='car/add'">Dodaj auto</button>
+</security:authorize>
 <button class="btn btn-primary" onclick="location.href='/wi/'">Powrot do strony glownej</button>
 </body>
 </html>
