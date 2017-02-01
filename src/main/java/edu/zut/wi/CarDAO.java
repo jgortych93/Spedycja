@@ -46,7 +46,7 @@ public class CarDAO {
 	
 	void updateCar(Car auto)
 	{
-		jdbc.update("UPDATE cars SET marka=?, model=?, pojemnosc=?, WHERE id=?",auto.getMarka(),auto.getModel(),auto.getPojemnosc(),auto.getId());
+		jdbc.update("UPDATE cars SET marka=?, model=?, pojemnosc=? WHERE id=?",auto.getMarka(),auto.getModel(),auto.getPojemnosc(),auto.getId());
 	}
 	
 	

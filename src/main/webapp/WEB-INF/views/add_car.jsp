@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="false" %>
@@ -10,9 +11,17 @@
 </head>
 <body>
 <h1>
+	<c:choose>
+<c:when test="${carForm['id']==null}">
 	Dodaj pojazd:
+</c:when>
+<c:otherwise>
+	Edytuj pojazd:
+</c:otherwise>
+</c:choose>
 </h1>
-<form:form action="/wi/car/add" modelAttribute="carForm" method="POST">
+
+<form:form  modelAttribute="carForm" method="POST">
 
  Marka: 
  <form:input path="marka" id="marka"></form:input>
@@ -31,7 +40,14 @@ Pojemnosc:
 
  <br />
 
+ <c:choose>
+<c:when test="${carForm['id']==null}">
  <input type="submit" value="Dodaj pojazd" />
+</c:when>
+<c:otherwise>
+ <input type="submit" value="Edytuj pojazd" />
+</c:otherwise>
+</c:choose>
 </form:form>
 
 </body>

@@ -12,13 +12,13 @@ public class CarService {
 	
 	void addCar(Car car)
 	{
-		if (findById(car.getId())==null) {
-			carDAO.insertCar(car);
-			System.out.println("Tu hestem");
-		} else {
-			carDAO.updateCar(car);
-		}
+		carDAO.insertCar(car);
 		
+		
+	}
+	void updateCar(Car car)
+	{
+		carDAO.updateCar(car);
 	}
 	
 	Car findById(int id)

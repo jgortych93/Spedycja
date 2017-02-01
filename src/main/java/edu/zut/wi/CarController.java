@@ -45,13 +45,23 @@ public class CarController {
 	}
 	
 	@RequestMapping(value = "/car/add", method=RequestMethod.POST)
+	public String updateCar(@ModelAttribute("carForm") @Valid Car car, BindingResult result, Model model)
+	{
+		if (result.hasErrors())
+			return "add_car";
+			
+		carService.addCar(car);
+		return "redirect:/cars";
+	}
+	
+	@RequestMapping(value="/car/{id}/update", method=RequestMethod.POST)
 	public String handleCreateCar(@ModelAttribute("carForm") @Valid Car car, BindingResult result, Model model)
 	{
 		if (result.hasErrors())
 			return "add_car";
 			
-		logger.info("Wprowadzo pojazd marki{}.", car.getMarka());
-		carService.addCar(car);
+		
+		carService.updateCar(car);
 		return "redirect:/cars";
 	}
 	
