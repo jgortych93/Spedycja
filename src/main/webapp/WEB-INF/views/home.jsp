@@ -16,7 +16,11 @@
 	</br>
 	<a href ="senders">Zobacz nadawcow</a>
 	</br>
+
+	<a href ="receivers">Zobacz odbiorcow</a>
+	</br>
 	<a href ="car/add">Dodaj pojazd</a>
+
 	
 </security:authorize>
 </body>

@@ -10,20 +10,19 @@
 <h1>
 <c:choose>
 <c:when test="${receiverForm['id']==null}">
-	Dodaj nadawce:
+	Dodaj odbiorce:
 </c:when>
 <c:otherwise>
-	Edytuj nadawce:
+	Edytuj odbiorce:
 </c:otherwise>
 </c:choose>
 </h1>
 
-<form:form action="${userActionUrl }" modelAttribute="senderForm" method="POST">
+<form:form action="${receiverActionUrl }" modelAttribute="receiverForm" method="POST">
 
  Nazwa: 
  <form:input path="name" id="name"></form:input>
  <br />
-
  Ulica: 
  <form:input path="street" id="street"></form:input>
 
@@ -45,16 +44,15 @@ Kod pocztowy:
  <form:input path="zipCode" id="zipCode"></form:input>
 
  <br />
-
-
  <c:choose>
 <c:when test="${receiverForm['id']==null}">
- <input type="submit" value="Dodaj nadawce" />
+ <input type="submit" value="Dodaj odbiorce" />
 </c:when>
 <c:otherwise>
-	 <input type="submit" value="Edytuj nadawce" />
+ <input type="submit" value="Edytuj odbiorce" />
 </c:otherwise>
 </c:choose>
+
 </form:form>
 
 
