@@ -11,7 +11,8 @@
 </h1>
 
 <P>  Aktualny czas to ${serverTime}. </P>
-	<a href ="spring_security_login">Zaloguj</a></br>
+	<a href ="spring_security_login">Zaloguj sie</a></br>
+	<a href="<c:url value="j_spring_security_logout" />" > Wyloguj sie</a>
 <security:authorize access="hasRole('ROLE_USER')">
 	</br>
 	<a href ="senders">Zobacz nadawcow</a>
