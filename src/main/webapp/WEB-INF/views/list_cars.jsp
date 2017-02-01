@@ -39,5 +39,7 @@
 
 
 </table>
+<button class="btn btn-primary" onclick="location.href='car/add'">Dodaj auto</button>
+<button class="btn btn-primary" onclick="location.href='/wi/'">Powrot do strony glownej</button>
 </body>
 </html>

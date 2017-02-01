@@ -37,7 +37,7 @@ public class CarController {
 		return "add_car";
 	}
 	
-	@RequestMapping(value="/car", method=RequestMethod.GET)
+	@RequestMapping(value="/cars", method=RequestMethod.GET)
 	public String listCar(Model model)
 	{
 		model.addAttribute("cars",carService.getCars());
@@ -52,13 +52,13 @@ public class CarController {
 			
 		logger.info("Wprowadzo pojazd marki{}.", car.getMarka());
 		carService.addCar(car);
-		return "redirect:/car";
+		return "redirect:/cars";
 	}
 	
 	@RequestMapping(value="car/take", method=RequestMethod.GET)
 	public String takeCar(Model model)
 	{
-		return "redirect:/car";
+		return "redirect:/cars";
 	}
 	@RequestMapping(value="car/{id}/take", method=RequestMethod.GET)
 	public String takingCar(Model model,@PathVariable("id") int id)
@@ -68,7 +68,7 @@ public class CarController {
 			carService.takeCar(car);
 		else
 			return "take_fail";
-		return "redirect:/car";
+		return "redirect:/cars";
 	}
 	
 	@RequestMapping(value="car/{id}/return", method=RequestMethod.GET)
@@ -79,6 +79,6 @@ public class CarController {
 			carService.returnCar(car);
 		else
 			return "return_fail";
-		return "redirect:/car";
+		return "redirect:/cars";
 	}
 }

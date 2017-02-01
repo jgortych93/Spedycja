@@ -18,10 +18,9 @@
 	</br>
 
 	<a href ="receivers">Zobacz odbiorcow</a>
-	</br>
-	<a href ="car/add">Dodaj pojazd</a>
-
 	
+	</br>
+	<a href ="cars">Zobacz pojazdy</a>
 </security:authorize>
 </br>
 <security:authorize access="hasRole('ROLE_DRIVER')" url="/**">
