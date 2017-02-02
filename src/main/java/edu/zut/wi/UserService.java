@@ -1,5 +1,6 @@
 package edu.zut.wi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,21 @@ public class UserService {
 	void deleteUser(int id)
 	{
 		userDAO.deleteUser(id);
+	}
+	
+	List<User> getAllDrivers()
+	{
+		List<User> driverNames = new ArrayList<User>();
+		List<User> users = listUser();
+		for(User user: users)
+			if(user.getUser_role().equals("ROLE_DRIVER"))
+				driverNames.add(user);
+		
+		return driverNames;
+	}
+	
+	User findByUsername(String name)
+	{
+		return userDAO.findByUsername(name);
 	}
 }

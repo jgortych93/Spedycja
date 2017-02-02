@@ -64,4 +64,8 @@ public class ReceiverDAO {
 		jdbc.update("UPDATE receiver SET name = ?,street=?,number=?,city=?,state=?,zipcode=? WHERE id=?", name,street, number,city, state, zipcode,id);
 	}
 	
+	public Receiver findByName(String name)
+	{
+		return jdbc.queryForObject("SELECT * FROM receiver WHERE name=\"" + name+"\"", new ReceiverMapper());
+	}
 }

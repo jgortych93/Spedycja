@@ -69,5 +69,11 @@ private JdbcTemplate jdbc;
 		return result;
 
 	}
+	
+	public User findByUsername(String name)
+	{
+		User result = new User();
+		return jdbc.queryForObject("SELECT * FROM users WHERE username=\"" + name+"\"",  new UserMapper());
+	}
 
 }

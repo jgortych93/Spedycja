@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+
+
 @Repository
 public class SenderDAO {
 	
@@ -62,6 +64,11 @@ public class SenderDAO {
 	public void updateSender(String id, String name,String street,String number,String city,String state,String zipcode)
 	{
 		jdbc.update("UPDATE sender SET name = ?,street=?,number=?,city=?,state=?,zipcode=? WHERE id=?", name,street, number,city, state, zipcode,id);
+	}
+	
+	public Sender findByName(String name)
+	{
+		return jdbc.queryForObject("SELECT * FROM sender WHERE name=\"" + name+"\"", new SenderMapper());
 	}
 	
 }

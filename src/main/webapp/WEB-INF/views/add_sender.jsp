@@ -18,7 +18,7 @@
 </c:choose>
 </h1>
 
-<form:form action="${userActionUrl }" modelAttribute="senderForm" method="POST">
+<form:form action="${senderActionUrl }" modelAttribute="senderForm" method="POST">
 
  Nazwa: 
  <form:input path="name" id="name"></form:input>

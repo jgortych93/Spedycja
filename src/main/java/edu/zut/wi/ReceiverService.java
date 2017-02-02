@@ -38,4 +38,8 @@ public class ReceiverService {
 		receiverDAO.updateReceiver(receiver.getId(), receiver.getName(), receiver.getStreet(), receiver.getNumber(), receiver.getCity(),
 				receiver.getState(), receiver.getZipCode());
 	}
+	public Receiver findByName(String name)
+	{
+		return receiverDAO.findByName(name);
+	}
 }
